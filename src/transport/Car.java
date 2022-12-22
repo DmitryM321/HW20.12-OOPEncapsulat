@@ -1,22 +1,21 @@
 package transport;
 import java.time.LocalDate;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
+
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String kpp;
     private final String typeBody;
     private int numberCar;
     private int seatsNumber;
     private boolean isSummer;
 
-    public Car(String brand, String model, double engineVolume, String color, int year, String country, String kpp, String typeBody, int numberCar, int seatsNumber, boolean isSummer) {
 
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
+    public Car(String brand, String model, double engineVolume, String color, int year, String country, String kpp, String typeBody, int numberCar, int seatsNumber, boolean isSummer, int maxSpeed) {
+        super(brand, model, year, country, color, maxSpeed);
+
+
+        /*if (brand == null || brand.isEmpty() || brand.isBlank()) {
             this.brand = "default";
         } else {
             this.brand = brand;
@@ -25,12 +24,12 @@ public class Car {
             this.model = "default";
         } else {
             this.model = model;
-        }
+        }*/
         this.engineVolume = engineVolume;
         if (engineVolume <= 0) {
             this.engineVolume = 1.5;
         }
-        if (color == null || color.isEmpty() || color.isBlank()) {
+      /*  if (color == null || color.isEmpty() || color.isBlank()) {
             this.color = "белый";
         } else {
             this.color = color;
@@ -44,7 +43,7 @@ public class Car {
             this.country = "default";
         } else {
             this.country = country;
-        }
+        }*/
         if (kpp.equals("Механика") || kpp.equals("Автомат")) {
             this.kpp = kpp;
         } else {
@@ -75,12 +74,12 @@ public class Car {
         }
     }
 
-    public String getBrand() {
+    /*public String getBrand() {
         return brand;
     }
     public String getModel() {
         return model;
-    }
+    }*/
 
     public double getEngineVolume() {
         return engineVolume;
@@ -90,7 +89,7 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
+    /*public String getColor() {
         return color;
     }
 
@@ -104,7 +103,7 @@ public class Car {
 
     public String getCountry() {
         return country;
-    }
+    }*/
 
     public String getKpp() {
         return kpp;
