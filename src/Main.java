@@ -1,36 +1,37 @@
 import transport.*;
-import java.time.LocalDate;
+import transport.Driver.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Car lada = new Car ("Lada", "Granta", 1.7, "желтый",
-                2015, "Россия",  "Механика", "Хетчбек",
-                1711, 5, true, 190);
-        Car.Key keyCar = new Car.Key(true, true);
-        Car.Insurance insurance = new Car.Insurance(33000, "123456789", LocalDate.of(2020, 01,01));
+        Car lada = new Car ("Lada", "Granta", 1.7);
+        Car audi = new Car("Audi", "Ф8", 3.0);
+        Car kia = new Car("Kia", "Sportage", 2.4);
+        Car hyundai = new Car("Hyundai", "Santa Fe", 1.6);
+        Truck man = new Truck("MAN", "GV1", 6);
+        Truck volvo = new Truck("Volvo", "V99", 5.5);
+        Truck kamaz = new Truck<DriverC>("Kamaz", "5325", 5.3);
+        Truck kraz = new Truck<DriverC>("Kraz", "256b", 8);
+        Bus icarus = new Bus ("Icarus", "Last", 5);
+        Bus paz = new Bus ("ПАЗ", "Никто не помнит", 4);
+        Bus liaz = new Bus ("Лиаз", "677", 5.2);
+        Bus mersedes = new Bus ("Mersedes", "MRS33", 6.3);
 
-        Bus icarus = new Bus ("Icarus", "Last", 1997, "Hungary", "желтый", 98, 150);
-        Bus paz = new Bus ("ПАЗ", "Никто не помнит", 1985, "СССР", "желтый", 65, 100);
-        Bus volvo = new Bus ("Volvo", "V2020", 2020, "Sweden", "белый", 100, 188);
+        Driver <Car> porsev = new Driver <>("Федор Поршев", true, 7);
+        Driver <Truck> fordov = new Driver <Truck>("Гарри Фордов", true, 111);
+        Driver <Bus> ferrariev = new Driver <> ("Эдуард Феррариев", true, 22);
 
+        System.out.println("Задание 2/3");
+        lada.bestLapTime();
+        volvo.maxSpeed();
+        paz.pitStop();
 
-        //       Car audi = new Car ("Audi", "null", 3.0, "черный", 2016, "Германия", "Автомат", "Седан", 7777, 0, true);
-       /*  Car kia = new Car ("Kia", "Sportage 4-го поколения", 2.4, "красный", 2020, "Южная Корея");
-        Car hyundai = new Car ("Hyundai", "Avante", 1.6, "оранжевый", 2016, "Южная Корея");
-
-        System.out.println(audi);
-        System.out.println(kia);
-        System.out.println(hyundai); */
-        lada.changeTyre(5);
-        System.out.println(lada);
-        System.out.println(insurance);
-        System.out.println(insurance.currentInsurance());
-        System.out.println(insurance.correctNumberInsurance());
-        System.out.println("ДЗ - ООП: наследование, static");
-        System.out.println(icarus);
-        System.out.println(paz);
-        System.out.println(volvo);
+        System.out.println("Задание 4");
+        porsev.infoAboutDriverAndRace(lada);
+        fordov.infoAboutDriverAndRace(man);
+        ferrariev.infoAboutDriverAndRace(icarus);
     }
 }
+
+
 
