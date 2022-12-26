@@ -1,9 +1,15 @@
-package transport;
+package transportUnit;
+import transport.driver.DriverB;
+import transport.driver.DriverD;
 
-import transport.Driver.DriverD;
-
-public class Bus <DriverD> extends Transport implements Competing {
-
+public class Bus extends Transport<DriverD> {
+    @Override
+    public DriverD getDriver() {
+        return driver;
+    }
+    public void infoAboutDriverAndRace() {
+        System.out.println("Водитель " + getDriver().getFio() + " управляет автомобилем " + getBrand() + " и будет участвовать в заезде");
+    }
     @Override
     public void startMove() {
         System.out.println("Автобус начал движение");
@@ -35,3 +41,4 @@ public class Bus <DriverD> extends Transport implements Competing {
         System.out.println("Автобус " + brand + " максимальная скорость");
     }
 }
+

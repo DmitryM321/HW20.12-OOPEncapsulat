@@ -1,5 +1,7 @@
-import transport.*;
-import transport.Driver.*;
+import transport.driver.*;
+import transportUnit.Bus;
+import transportUnit.Car;
+import transportUnit.Truck;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,16 +12,16 @@ public class Main {
         Car hyundai = new Car("Hyundai", "Santa Fe", 1.6);
         Truck man = new Truck("MAN", "GV1", 6);
         Truck volvo = new Truck("Volvo", "V99", 5.5);
-        Truck kamaz = new Truck<DriverC>("Kamaz", "5325", 5.3);
-        Truck kraz = new Truck<DriverC>("Kraz", "256b", 8);
+        Truck kamaz = new Truck ("Kamaz", "5325", 5.3);
+        Truck kraz = new Truck ("Kraz", "256b", 8);
         Bus icarus = new Bus ("Icarus", "Last", 5);
         Bus paz = new Bus ("ПАЗ", "Никто не помнит", 4);
         Bus liaz = new Bus ("Лиаз", "677", 5.2);
         Bus mersedes = new Bus ("Mersedes", "MRS33", 6.3);
 
-        Driver <Car> porsev = new Driver <>("Федор Поршев", true, 7);
-        Driver <Truck> fordov = new Driver <Truck>("Гарри Фордов", true, 111);
-        Driver <Bus> ferrariev = new Driver <> ("Эдуард Феррариев", true, 22);
+        DriverB porsev = new DriverB ("Федор Поршев", true, 7);
+        DriverC fordov = new DriverC ("Гарри Фордов", true, 111);
+        DriverD ferrariev = new DriverD("Эдуард Феррариев", true, 22);
 
         System.out.println("Задание 2/3");
         lada.bestLapTime();
@@ -27,9 +29,14 @@ public class Main {
         paz.pitStop();
 
         System.out.println("Задание 4");
-        porsev.infoAboutDriverAndRace(lada);
-        fordov.infoAboutDriverAndRace(man);
-        ferrariev.infoAboutDriverAndRace(icarus);
+        lada.setDriver(porsev);
+        lada.infoAboutDriverAndRace();
+
+        volvo.setDriver(fordov);
+        volvo.infoAboutDriverAndRace();
+
+        paz.setDriver(ferrariev);
+        paz.infoAboutDriverAndRace();
     }
 }
 

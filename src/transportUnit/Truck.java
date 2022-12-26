@@ -1,11 +1,16 @@
-package transport;
+package transportUnit;
+import transport.Competing;
+import transport.driver.DriverB;
+import transport.driver.DriverC;
 
-
-import transport.Driver.Driver;
-import transport.Driver.DriverC;
-
-public class Truck <DriverC> extends Transport implements Competing {
-
+public class Truck extends Transport<DriverC>   {
+    @Override
+    public DriverC getDriver() {
+        return driver;
+    }
+    public void infoAboutDriverAndRace() {
+        System.out.println("Водитель " + getDriver().getFio() + " управляет автомобилем " + getBrand() + " и будет участвовать в заезде");
+    }
     public Truck(String brand, String model, double engineVolume) {
             super(brand, model, engineVolume);
         }

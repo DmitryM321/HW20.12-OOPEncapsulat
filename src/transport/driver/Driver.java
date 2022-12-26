@@ -1,14 +1,12 @@
-package transport.Driver;
-import transport.Car.*;
-import transport.Transport;
-import static transport.Transport.*;
-public class Driver <T extends Transport> {
+package transport.driver;
+import transportUnit.Car;
+import transportUnit.Transport;
+
+public class Driver {
     private String fio;
     protected boolean drivingLicense;
     protected int experience;
-    public void infoAboutDriverAndRace(T brand) {
-    System.out.println("Водитель " + fio + " управляет автомобилем " + brand.getBrand() + " и будет участвовать в заезде");
-}
+
     public Driver(String fio, boolean drivingLicense, int experience) {
         if (fio == null || fio.isEmpty() || fio.isBlank()) {
             this.fio = "default";

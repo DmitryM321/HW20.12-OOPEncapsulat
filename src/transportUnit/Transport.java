@@ -1,9 +1,23 @@
-package transport;
-import transport.Driver.Driver;
-public abstract class Transport <T> implements Competing {
+package transportUnit;
+import transport.Competing;
+import transport.driver.Driver;
+
+
+public abstract class Transport <T extends Driver>  implements Competing {
     protected final String brand;
     protected final String model;
+    T driver;
     protected final double engineVolume;
+
+    public void setDriver(T driver) {
+        this.driver = driver;
+    }
+    public T getDriver() {
+        return driver;
+    }
+    void infoAboutDriverAndRace() {
+    }
+
     public Transport(String brand, String model, double engineVolume) {
         if (brand == null || brand.isEmpty()) {
             this.brand = "default";
@@ -20,7 +34,9 @@ public abstract class Transport <T> implements Competing {
         } else {
             this.engineVolume = engineVolume;
         }
+
     }
+
     public String getBrand() {
         return brand;
     }
@@ -32,6 +48,7 @@ public abstract class Transport <T> implements Competing {
     }
     public abstract void startMove();
     public abstract void stopMove();
+
     @Override
     public void pitStop() {
     }
