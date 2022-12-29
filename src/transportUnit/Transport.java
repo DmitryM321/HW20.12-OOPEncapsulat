@@ -1,8 +1,6 @@
 package transportUnit;
 import transport.Competing;
 import transport.driver.Driver;
-
-
 public abstract class Transport <T extends Driver>  implements Competing {
     protected final String brand;
     protected final String model;
@@ -36,7 +34,7 @@ public abstract class Transport <T extends Driver>  implements Competing {
         }
 
     }
-
+    public abstract void printType();
     public String getBrand() {
         return brand;
     }
