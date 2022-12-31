@@ -56,6 +56,8 @@ public abstract class Transport <T extends Driver>  implements Competing {
     @Override
     public void maxSpeed() {
     }
+    public abstract void passDiagnostics() throws PassVerification;
+
 }
 
 

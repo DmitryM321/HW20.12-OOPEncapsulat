@@ -1,4 +1,5 @@
 package transportUnit;
+import transport.driver.Driver;
 import transport.driver.DriverD;
 
 public class Bus extends Transport<DriverD> {
@@ -84,6 +85,12 @@ public class Bus extends Transport<DriverD> {
     public void maxSpeed() {
         super.maxSpeed();
         System.out.println("Автобус " + brand + " максимальная скорость");
+    }
+
+    @Override
+    public void passDiagnostics() throws PassVerification {
+        throw new PassVerification("Автобусы не могут пройти диагностику.");
+
     }
 }
 

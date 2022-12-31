@@ -1,4 +1,5 @@
 package transportUnit;
+import transport.driver.Driver;
 import transport.driver.DriverB;
 public class Car extends Transport<DriverB>   {
     //   private DriverB driver;
@@ -73,6 +74,15 @@ public class Car extends Transport<DriverB>   {
     public void maxSpeed() {
         super.maxSpeed();
         System.out.println("Автомобиль " + brand +  " максимальная скорость");
+    }
+
+    @Override
+    public void passDiagnostics() throws PassVerification{
+    if(this.driver == null){
+        throw new PassVerification("Водитель отсутсвует. Автомобиль не может пройти дианостику");
+    }  else {
+        System.out.println("ALARM! Wolf catch bunnies");
+    }
     }
 }
 
