@@ -1,6 +1,8 @@
 package transportUnit;
+import mechanics.Mechanics;
 import transport.driver.Driver;
 import transport.driver.DriverD;
+import transport.driver.Licenses;
 
 public class Bus extends Transport<DriverD> {
 
@@ -29,7 +31,23 @@ public class Bus extends Transport<DriverD> {
         }
         }
     private Capacity capacity;
+    private Mechanics mechanic;
 
+    public Mechanics getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(Mechanics mechanic) {
+        if(mechanic.getCategory().contains(Licenses.D)) {
+            this.mechanic = mechanic;
+        }else{
+            System.out.println("Не обучен, простите");
+        }
+    }
+
+    public void dvaVmashine() {
+        System.out.println("В авто механик " + getMechanic().getName() + " и водитель " + getDriver().getFio());
+    }
     public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
         this.capacity = capacity;
@@ -91,6 +109,15 @@ public class Bus extends Transport<DriverD> {
     public void passDiagnostics() throws PassVerification {
         throw new PassVerification("Автобусы не могут пройти диагностику.");
 
+    }
+
+    @Override
+    public String toString() {
+        return "Bus{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                '}';
     }
 }
 

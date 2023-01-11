@@ -1,6 +1,8 @@
 package transportUnit;
+import mechanics.Mechanics;
 import transport.driver.Driver;
 import transport.driver.DriverC;
+import transport.driver.Licenses;
 
 public class Truck extends Transport<DriverC> {
     public enum LoadCapacity {
@@ -35,7 +37,23 @@ public class Truck extends Transport<DriverC> {
     }
 
     private LoadCapacity loadCapacity;
+    private Mechanics mechanic;
 
+    public Mechanics getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(Mechanics mechanic) {
+        if(mechanic.getCategory().contains(Licenses.C)) {
+            this.mechanic = mechanic;
+        }else{
+            System.out.println("Не обучен, простите");
+        }
+    }
+
+    public void dvaVmashine() {
+        System.out.println("В авто механик " + getMechanic().getName() + " и водитель " + getDriver().getFio());
+    }
     public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
         this.loadCapacity = loadCapacity;

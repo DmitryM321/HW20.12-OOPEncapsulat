@@ -1,6 +1,9 @@
 package transportUnit;
+import mechanics.Mechanics;
 import transport.driver.Driver;
 import transport.driver.DriverB;
+import transport.driver.Licenses;
+
 public class Car extends Transport<DriverB>   {
     //   private DriverB driver;
 
@@ -20,6 +23,22 @@ public class Car extends Transport<DriverB>   {
         }
         }
     private BobyType bobyType;
+    private Mechanics mechanic;
+
+    public Mechanics getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(Mechanics mechanic) {
+        if(mechanic.getCategory().contains(Licenses.B)) {
+            this.mechanic = mechanic;
+        }else{
+            System.out.println("Не обучен, простите");
+        }
+    }
+    public void dvaVmashine() {
+        System.out.println("В авто механик " + getMechanic().getName() + " и водитель " + getDriver().getFio());
+    }
     public Car(String brand, String model, double engineVolume, BobyType bobyType) {
         super(brand, model, engineVolume);
         this.bobyType = bobyType;

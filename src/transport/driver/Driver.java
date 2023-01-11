@@ -56,6 +56,15 @@ public class Driver {
     public void fillFuel() {
         System.out.println("заправить авто");
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "fio='" + fio + '\'' +
+                ", drivingLicense=" + drivingLicense +
+                ", experience=" + experience +
+                '}';
+    }
 }
 
 
