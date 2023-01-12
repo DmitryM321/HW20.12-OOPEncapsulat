@@ -4,6 +4,8 @@ import transport.driver.Driver;
 import transport.driver.DriverB;
 import transport.driver.Licenses;
 
+import java.util.Objects;
+
 public class Car extends Transport<DriverB>   {
     //   private DriverB driver;
 
@@ -102,6 +104,19 @@ public class Car extends Transport<DriverB>   {
     }  else {
         System.out.println("ALARM! Wolf catch bunnies");
     }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return bobyType == car.bobyType && Objects.equals(mechanic, car.mechanic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bobyType, mechanic);
     }
 }
 

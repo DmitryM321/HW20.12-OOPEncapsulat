@@ -20,26 +20,34 @@ public class Main {
         DriverC fordov = new DriverC("Гарри Фордов", true, 111);
         DriverD ferrariev = new DriverD("Эдуард Феррариев", true, 22);
 
-        System.out.println("Задание Map");
-        Mechanics mechanic1 = new Mechanics("Петр Первый", "Лучше не знать",  Licenses.D);
-        Mechanics mechanic2 = new Mechanics("Николай Второй", "Box 231 in GSK Mechta", Licenses.B,Licenses.C);
+
+        Mechanics mechanic1 = new Mechanics("Петр Первый", "Лучше не знать", Licenses.D);
+        Mechanics mechanic2 = new Mechanics("Николай Второй", "Box 231 in GSK Mechta", Licenses.B, Licenses.C);
         Mechanics mechanic3 = new Mechanics("Александр Третий", "Rolf", Licenses.C);
         Mechanics mechanic4 = new Mechanics("Александр Третий", "Rolf", Licenses.C);
 
-        Map<Transport, Mechanics > mechanicsMap = new HashMap<>();
-        mechanicsMap.put(kamaz, mechanic1);
-        mechanicsMap.put(kraz,  mechanic1);
-        mechanicsMap.put(lada, mechanic2);
-        mechanicsMap.put(audi, mechanic2);
-        mechanicsMap.put(liaz, mechanic3);
-        mechanicsMap.put(mersedes, mechanic3);
-        mechanicsMap.put(mersedes, mechanic4); // Тестовая строка
-        System.out.println(mechanicsMap);
+        System.out.println("Задание Set");
+        Set<Driver> drivers = new HashSet<>();
+        drivers.add(porsev);
+        drivers.add(fordov);
+        drivers.add(ferrariev);
+        Iterator<Driver> drivers1 = drivers.iterator();
+        while (drivers1.hasNext()) {
+            Driver next = drivers1.next();
+            System.out.println(next.getFio());
+        }
     }
 }
 
-//
-//
+//        Map<Transport, Mechanics > mechanicsMap = new HashMap<>();
+//        mechanicsMap.put(kamaz, mechanic1);
+//        mechanicsMap.put(kraz,  mechanic1);
+//        mechanicsMap.put(lada, mechanic2);
+//        mechanicsMap.put(audi, mechanic2);
+//        mechanicsMap.put(liaz, mechanic3);
+//        mechanicsMap.put(mersedes, mechanic3);
+//        mechanicsMap.put(mersedes, mechanic4); // Тестовая строка
+//        System.out.println(mechanicsMap);
 //        List<Driver> drivers = new ArrayList<>();
 //        Collections.addAll(drivers, porsev, fordov, ferrariev);
 //        System.out.println(drivers);
@@ -70,10 +78,7 @@ public class Main {
 //        buses.add(liaz);
 //        buses.add(mersedes);
 //
-//        List<Driver> drivers = new ArrayList<>();
-//        drivers.add(porsev);
-//        drivers.add(fordov);
-//        drivers.add(ferrariev);
+//
 
 //        Car kia = new Car("Kia", "Sportage", 2.4, Car.BobyType.OFFROAD);
 //        Car hyundai = new Car("Hyundai", "Santa Fe", 1.6, Car.BobyType.CROSSOVER);

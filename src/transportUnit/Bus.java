@@ -4,6 +4,8 @@ import transport.driver.Driver;
 import transport.driver.DriverD;
 import transport.driver.Licenses;
 
+import java.util.Objects;
+
 public class Bus extends Transport<DriverD> {
 
     public enum Capacity {ESPECAILLY_SMALL(null, 10), SMALL(null, 25),
@@ -118,6 +120,19 @@ public class Bus extends Transport<DriverD> {
                 ", model='" + model + '\'' +
                 ", engineVolume=" + engineVolume +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bus bus = (Bus) o;
+        return capacity == bus.capacity && Objects.equals(mechanic, bus.mechanic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(capacity, mechanic);
     }
 }
 

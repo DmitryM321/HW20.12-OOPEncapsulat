@@ -6,6 +6,7 @@ import transport.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Mechanics   {
     private String  name;
@@ -49,5 +50,18 @@ public class Mechanics   {
                 ", company='" + company + '\'' +
                 ", category=" + category +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanics mechanics = (Mechanics) o;
+        return Objects.equals(name, mechanics.name) && Objects.equals(company, mechanics.company) && Objects.equals(category, mechanics.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, company, category);
     }
 }

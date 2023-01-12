@@ -4,6 +4,8 @@ import transport.driver.Driver;
 import transport.driver.DriverC;
 import transport.driver.Licenses;
 
+import java.util.Objects;
+
 public class Truck extends Transport<DriverC> {
     public enum LoadCapacity {
         N1(null, 3.5f), N2(3.5f, 12f),
@@ -127,6 +129,19 @@ public class Truck extends Transport<DriverC> {
         } else {
             System.out.println(this.driver);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Truck truck = (Truck) o;
+        return loadCapacity == truck.loadCapacity && Objects.equals(mechanic, truck.mechanic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(loadCapacity, mechanic);
     }
 }
 
