@@ -26,6 +26,7 @@ public class Main {
         Mechanics mechanic3 = new Mechanics("Александр Третий", "Rolf", Licenses.C);
         Mechanics mechanic4 = new Mechanics("Александр Третий", "Rolf", Licenses.C);
 
+
         System.out.println("Задание Set");
         Set<Driver> drivers = new HashSet<>();
         drivers.add(porsev);
